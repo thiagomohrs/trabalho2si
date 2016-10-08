@@ -6,5 +6,5 @@ public class Peca {
 	// 0 = vazio, 1 = jogador1 e 2= jogador2
 	Peca() {
 		this.dono = 0;
-	}
+	}		
 }

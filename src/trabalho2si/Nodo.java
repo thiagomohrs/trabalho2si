@@ -22,10 +22,10 @@ public class Nodo {
 		this.alpha = alpha;
 		this.beta = beta;
 	}
-
+	
 	public void imprimirNodo() {
 		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 8; j++) {
+			for (int j = 0; j < 7; j++) {
 				System.out.print(this.estado[i][j]);
 			}
 			System.out.println("");
