@@ -31,4 +31,12 @@ public class Nodo {
 			System.out.println("");
 		}
 	}
+	
+	public void adicionarPeca(Integer coluna, Peca peca) {
+        for (int linha = 6; linha >= 0; linha--) {
+        	if (this.estado[linha][coluna] == Peca.EMPTY.getValue()) {
+        		this.estado[linha][coluna] = peca.getValue();
+			}
+        }
+	}
 }
