@@ -1,7 +1,5 @@
 package trabalho2si;
 
-//https://github.com/rodolfolottin/INE5633/tree/master/ligue4-minmax
-
 public class Main {
 
 	public static void main(String[] args) {
