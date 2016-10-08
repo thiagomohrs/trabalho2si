@@ -1,10 +1,17 @@
 package trabalho2si;
 
-public class Peca {
-	int dono;
+public enum Peca {
+	EMPTY("0"),
+    PLAYER_1("1"),
+    PLAYER_2("2");
 
-	// 0 = vazio, 1 = jogador1 e 2= jogador2
-	Peca() {
-		this.dono = 0;
-	}		
+    private String value;
+
+    Peca(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }
