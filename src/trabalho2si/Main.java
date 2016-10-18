@@ -6,6 +6,7 @@ public class Main {
 		int[][] matrizVazia = new int[6][7];
 		iniciarMatriz(matrizVazia);
 		Nodo nodoVazio = new Nodo(0, matrizVazia, Peca.EMPTY, 0, 0, false, 0, 0);
+		nodoVazio.adicionarPeca(3, Peca.PLAYER_1);
 		nodoVazio.imprimirNodo();
 	}
 
