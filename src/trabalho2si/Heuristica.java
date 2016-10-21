@@ -19,9 +19,9 @@ public class Heuristica {
 		return pontuacao;
 	}
 	
-	public int[] calculaHeuristica(Nodo nodo){
+	public int[] calculaHeuristica(int[] posicoes, Nodo nodo){
 		int peca;
-		int ArrayList listaSequenciasJogador = this.getSequencias(int[0][0] ,nodo, 1);
+		int[] listaSequenciasJogador = getSequencias(posicoes,nodo, 1);
 		       	int pontComp = 0;
 		        int pontJog = 0;
 		        boolean jogador = false;
@@ -60,19 +60,18 @@ public class Heuristica {
 			}
 		}
 		int[] heuristica = {pontJog, pontComp};
-		if (heuristica[0] != temp[0] || heuristica[1] != [1]) {
-			int[] temp = heuristica;
+		if (heuristica[0] != temp[0] || heuristica[1] != temp[1]) {
+			int[] aux = heuristica;
 		}
 		return heuristica;
 	}
 	
-	public ArrayList getSequencias(int[] ultimaPosicao, Nodo nodo, int jogador){
-		ArrayList<Integer> listaSequencias = new ArrayList<>();
+	public int[] getSequencias(int[] ultimaPosicao, Nodo nodo, int jogador){
+		int[] listaSequencias = null;
 //		        listaSequencias.add(this.analisaColunaPecaTopo(nodo));
 //		        listaSequencias.add(this.analisaLinhaPecaTopo(nodo));
 //		        listaSequencias.add(this.analisaDiagDirPecaTopo(nodo));
-		        listaSequencias.add(this.analisaDiagEsqPecaTopo(ultimaPosicao,nodo, jogador));
-
+//		        listaSequencias.add(this.analisaDiagEsqPecaTopo(ultimaPosicao,nodo, jogador));
 		        return listaSequencias;
 	}
 
