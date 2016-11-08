@@ -48,11 +48,10 @@ public class Nodo {
 	}
 
 	public List<Nodo> criarFilhos(Nodo nodo) {
-		// starts creating plays at the middle
 		final Integer[] colunas = { 3, 4, 2, 5, 1, 6, 0 };
 		final List<Nodo> filhos = new ArrayList<>();
 		for(final Integer coluna : colunas) {
-			Nodo filho = this.adicionarPeca(coluna, Peca.PLAYER_2);
+//			Nodo filho = this.adicionarPeca(coluna, Peca.PLAYER_2);
 			filhos.add(nodo);
 		}
 		return filhos;
