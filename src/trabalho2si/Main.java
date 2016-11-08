@@ -1,32 +1,52 @@
 package trabalho2si;
 
+import java.util.Scanner;
+
+import br.ufsc.brocodeufsc.fourinaline.model.impl.AIBoardState;
+import br.ufsc.brocodeufsc.fourinaline.model.impl.RealPlayerBoardState;
+import br.ufsc.brocodeufsc.fourinaline.util.game.PlayerType;
+import br.ufsc.brocodeufsc.fourinaline.util.view.UI;
+
 public class Main {
 
 	public static void main(String[] args) {
 		int[][] matrizVazia = new int[6][7];
 		iniciarMatriz(matrizVazia);
-		Nodo nodoVazio = new Nodo(0, matrizVazia, Peca.EMPTY, 0, 0, false, 0, 0);
-		nodoVazio.adicionarPeca(3, Peca.PLAYER_1);
-		nodoVazio.imprimirNodo();
+		Nodo nodoAtual = new Nodo(0, matrizVazia, Peca.EMPTY, 0, 0, false, 0, 0);
+		nodoAtual.adicionarPeca(3, Peca.PLAYER_1);
+		nodoAtual.imprimirNodo();
 		Integer vencedor = null;
 		Integer jogadorDaVez = null;
 		jogadorDaVez = perguntarJogadorDaVez();
 		int maiorSequencia = 0;
-		while(vencedor == null){
-			//Jogada
-			nodoVazio.adicionarPeca(3, Peca.PLAYER_1);
-			if(maiorSequencia == 4){
-				vencedor = jogadorDaVez;
+		do {
+			if(jogadorDaVez == 1) {
+				perguntarColunaDaJogada(nodoAtual); 
+				jogadorDaVez = 2; // proximo jogador
+			} else {
+//				nodo.selecionarMelhorNodoFilho;
+				jogadorDaVez = 2;//proximo jogador
 			}
-		}
+		} while(!nodoAtual.isNodoFolha);
 	}
 
 	private static Integer perguntarJogadorDaVez() {
-		if(jogador){
+		Scanner s = new Scanner(System.in);
+	    System.out.println("Quem vai começar jogando (Jogador = 1 | IA = 2): ");
+	    int jogador = s.nextInt();
+		if (jogador == 1)
 			return 1;
+		else
+			return 2;
 		}
-		return 2;
-	}
+	
+	private static void perguntarColunaDaJogada(Nodo nodo) {
+		Scanner s = new Scanner(System.in);
+	    System.out.println("Qual coluna você quer jogar? (1-7)");
+	    int coluna = s.nextInt();
+	    nodo.adicionarPeca(coluna+1, Peca.PLAYER_1);
+		}
+	
 
 	private static void iniciarMatriz(int[][] matrizVazia) {
 		for (int i = 0; i < matrizVazia.length; i++) {

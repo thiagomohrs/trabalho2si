@@ -1,71 +1,86 @@
 package trabalho2si;
 
+import java.util.List;
+
+import br.ufsc.brocodeufsc.fourinaline.model.BoardState;
+import br.ufsc.brocodeufsc.fourinaline.model.impl.AIBoardState;
+
 public class Minimax {
-	int[][] estado;
-	Heuristica heuristica;
-	int profundidade;
+//	int[][] estado;
+//	Heuristica heuristica;
+//	int profundidade;
 	
-	Minimax(int[][] estado, int profundidade){
-		this.estado = estado;
-		this.profundidade = profundidade;
+	public static class MiniMaxParameters {
+
+		private Integer alpha;
+
+		private Integer beta;
+
+		private MiniMaxParameters(final Integer alpha, final Integer beta) {
+			this.alpha = alpha;
+			this.beta = beta;
+		}
+
+		@Override
+		public String toString() {
+			return String.format("ALPHA[%d] BETA[%d]", alpha, beta);
+		}
+
 	}
-	public int calcularMinimax() {
-		return 0;
-	}
-
-	public void podaMinimax() {
-
-	}
-
-	public void criarNodoFilho() {
-
-	}
-
-	public boolean verificaVitoriaPecaJogada() {
-		return false;
-	}
-
-	public int analisaColunaPecaJogada(int[][] estado, int linhaJogada, int colunaJogada, int pecaJogada) {
-		int quantidadePecasSequencia = 1;
-//		tab, linha, coluna, pecaJogada):
-//	        sequencia = 1
+	
+//	Minimax(int[][] estado, int profundidade){
+//		this.estado = estado;
+//		this.profundidade = profundidade;
+//	}
+//	
+//	public int calcularMinimax() {
+//		return 0;
+//	}
 //
-//	        # descendo coluna, verificações em linha reta
-//	        for valorLinha in xrange(linha + 1, self._lenTab, 1):
-//		for (int linha = 0; linha < this.estado.length; linha++) {
-//			if (this.estado. == novaPeca.) {
-//				quantidadePecasSequencia += 1;
-//				if (quantidadePecasSequencia == 4) {
-//					break;
-//				} else{
-//					quantidadePecasSequencia = 0;
-//				}
-//			}
-//		}
-		return quantidadePecasSequencia;
+//	public void podaMinimax() {
+//
+//	}
+//
+//	public void criarNodoFilho() {
+//
+//	}
+//
+//	public boolean verificaVitoriaPecaJogada() {
+//		return false;
+//	}
+
+	public Nodo minimax(Nodo nodo, int alpha, int beta) {
+		if(nodo.isNodoFolha){
+			return nodo;
+		}
+		final List<Nodo> children = nodo.createChildren();
+		BoardState candidate = null;
+		if(current instanceof AIBoardState) {
+			for(final BoardState child : children) {
+				candidate = minimax(child, parameters);
+				final Integer score = candidate.getScore();
+				if(score > parameters.alpha) {
+					parameters.alpha = score;
+				}
+				if(parameters.alpha >= parameters.beta) {
+					break;
+				}
+			}
+		} else {
+			for(final BoardState child : children) {
+				candidate = minimax(child, parameters);
+				final Integer score = candidate.getScore();
+				if(score < parameters.beta) {
+					parameters.beta = score;
+				}
+				if(parameters.alpha >= parameters.beta) {
+					break;
+				}
+			}
+		}
+		return candidate;
 	}
-
-	public int analisaLinhaPecaJogada() {
-		int quantidadePecasSequencia = 1;
-		return quantidadePecasSequencia;
-	}
-
-	public int analisaDiagonaisPecaJogada() {
-		int quantidadePecasSequencia = 1;
-
-		// Chama outros metodos pra analizar diagonais
-		this.analisaDiagonalEsquerdaInferior();
-		this.analisaDiagonalDireiraInferior();
-		return quantidadePecasSequencia;
-	}
-
-	public int analisaDiagonalEsquerdaInferior() {
-		int quantidadePecasSequencia = 0;
-		return quantidadePecasSequencia;
-	}
-
-	public int analisaDiagonalDireiraInferior() {
-		int quantidadePecasSequencia = 0;
-		return quantidadePecasSequencia;
+		return nodo;
 	}
 }
+

@@ -1,5 +1,11 @@
 package trabalho2si;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.ufsc.brocodeufsc.fourinaline.model.Board;
+import br.ufsc.brocodeufsc.fourinaline.model.BoardState;
+
 public class Nodo {
 
 	int id;
@@ -39,5 +45,16 @@ public class Nodo {
         		break;
 			}
         }
+	}
+
+	public List<Nodo> criarFilhos(Nodo nodo) {
+		// starts creating plays at the middle
+		final Integer[] colunas = { 3, 4, 2, 5, 1, 6, 0 };
+		final List<Nodo> filhos = new ArrayList<>();
+		for(final Integer coluna : colunas) {
+			Nodo filho = this.adicionarPeca(coluna, Peca.PLAYER_2);
+			filhos.add(nodo);
+		}
+		return filhos;
 	}
 }
