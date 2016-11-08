@@ -4,21 +4,6 @@ public class Heuristica {
 
 	private int[] listaSequencias = null;
 
-	public int calculaHeuristicaEstado(Nodo nodo){
-		int pontuacao = 0;
-		if (nodo.isNodoFolha){
-			if (nodo.novaPeca == Peca.PLAYER_2){
-				pontuacao = 10 * 4 - nodo.profundidade * 25;
-			}else {
-				if (nodo.novaPeca == Peca.PLAYER_1){
-					pontuacao = -10 * 4 - nodo.profundidade * 25;
-				}
-			}
-		} else {
-		}
-		return pontuacao;
-	}
-
 	public int[] calculaHeuristica(int[] posicoes, Nodo nodo, int jogador){
 		int[] listaSequenciasJogador = getSequencias(posicoes,nodo, 1);
 		int pontComp = 0;

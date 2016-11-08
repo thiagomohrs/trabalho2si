@@ -8,12 +8,10 @@ public class Main {
 		int[][] matrizVazia = new int[6][7];
 		iniciarMatriz(matrizVazia);
 		Nodo nodoAtual = new Nodo(0, matrizVazia, Peca.EMPTY, 0, 0, false, 0, 0);
-		nodoAtual.adicionarPeca(3, Peca.PLAYER_1);
+//		nodoAtual.adicionarPeca(3, Peca.PLAYER_1);
 		nodoAtual.imprimirNodo();
-		Integer vencedor = null;
 		Integer jogadorDaVez = null;
 		jogadorDaVez = perguntarJogadorDaVez();
-		int maiorSequencia = 0;
 		do {
 			if(jogadorDaVez == 1) {
 				perguntarColunaDaJogada(nodoAtual); 
