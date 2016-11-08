@@ -3,9 +3,6 @@ package trabalho2si;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufsc.brocodeufsc.fourinaline.model.Board;
-import br.ufsc.brocodeufsc.fourinaline.model.BoardState;
-
 public class Nodo {
 
 	int id;

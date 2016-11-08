@@ -2,11 +2,6 @@ package trabalho2si;
 
 import java.util.Scanner;
 
-import br.ufsc.brocodeufsc.fourinaline.model.impl.AIBoardState;
-import br.ufsc.brocodeufsc.fourinaline.model.impl.RealPlayerBoardState;
-import br.ufsc.brocodeufsc.fourinaline.util.game.PlayerType;
-import br.ufsc.brocodeufsc.fourinaline.util.view.UI;
-
 public class Main {
 
 	public static void main(String[] args) {
